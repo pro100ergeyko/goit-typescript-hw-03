@@ -16,13 +16,13 @@ class Person {
 
 abstract class House {
   constructor(
-    protected dor: boolean,
+    protected door: boolean,
     protected key: Key,
-    protected tenants: Person[] = []
+    private tenants: Person[] = []
   ) {}
 
   comeIn(person: Person): void {
-    if (this.dor) {
+    if (this.door) {
       this.tenants.push(person);
     }
   }
@@ -33,7 +33,7 @@ abstract class House {
 class MyHouse extends House {
   openDoor(key: Key): void {
     if (key.getSignature() === this.key.getSignature()) {
-      this.dor = true;
+      this.door = true;
       console.log("Door is opened");
     } else {
       console.log("Door is closed");
